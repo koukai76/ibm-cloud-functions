@@ -10,9 +10,9 @@ const fs = require('fs');
 
   const res = await axios.post(url, params);
 
-  const data = `${process.env.MY_PP}\nAPIGW_ACCESS_TOKEN=${res.data['access_token']}`;
+  const data = `${process.env.WSKPROPS}\nAPIGW_ACCESS_TOKEN=${res.data['access_token']}`;
 
-  fs.writeFile('file1.txt', data, err => {
+  fs.writeFile('.wskprops', data, err => {
     if (err) throw err;
     console.log('正常に書き込みが完了しました');
   });

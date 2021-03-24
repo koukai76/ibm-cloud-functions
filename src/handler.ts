@@ -7,7 +7,7 @@ export const hogehoge = (params: { q: string }) => {
     statusCode: 200,
     body: JSON.stringify({
       data: params.q,
-      env: process.env.FIREBASE_DATABASE,
+      env: `env`,
     }),
   };
 };

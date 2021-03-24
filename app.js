@@ -10,7 +10,7 @@ const { exec } = require('child_process');
 
   const res = await axios.post(url, params);
 
-  conosole.log(res.status);
+  console.log(res.status);
   
   exec(
     `export OW_APIGW_ACCESS_TOKEN="${res.data['access_token']}"`,

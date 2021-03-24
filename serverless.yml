@@ -1,0 +1,50 @@
+service: app
+
+provider:
+  name: openwhisk
+  runtime: nodejs:12
+
+functions:
+  hogehoge:
+    handler: dist/src/handler.hogehoge
+    events:
+      - http:
+          method: GET
+          path: /v1/hogehoge
+          resp: http
+
+  post:
+    handler: dist/src/handler.post
+    events:
+      - http:
+          method: POST
+          path: /v1/post
+          resp: http
+
+# functions:
+#   hello:
+#     handler: handler.hello
+#     events:
+#       - http:
+#           method: GET
+#           path: /v1/hello
+#           resp: http
+
+#   hoge:
+#     handler: handler.hoge
+#     events:
+#       - http:
+#           method: GET
+#           path: /v1/hoge
+#           resp: http
+
+plugins:
+  - serverless-openwhisk
+
+# resources:
+#   apigw:
+#     auth:
+#       key: API-Key-Header
+    # rate_limit:
+    #   rate: 5
+    #   unit: minute

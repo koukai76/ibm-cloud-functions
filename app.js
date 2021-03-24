@@ -10,10 +10,10 @@ const { exec } = require('child_process');
 
   const res = await axios.post(url, params);
 
-  console.log(res.status);
-  
-  exec(
-    `export OW_APIGW_ACCESS_TOKEN="${res.data['access_token']}"`,
-    (err, stdout, stderr) => {}
-  );
+  const data = `${process.env.MY_PP}\nAPIGW_ACCESS_TOKEN=${res.data['access_token']}`;
+
+  fs.writeFile('file1.txt', data, err => {
+    if (err) throw err;
+    console.log('正常に書き込みが完了しました');
+  });
 })();

@@ -1,0 +1,22 @@
+name: deploy
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  step1:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@master
+      
+      - name: task
+        env:
+          WSKPROPS: ${{ secrets.WSKPROPS }}
+          OW_IAM_NAMESPACE_API_KEY: ${{ secrets.OW_IAM_NAMESPACE_API_KEY }}
+
+        run: |
+          npm i
+          node script.js
+          mv wskprops ~/
+          npm run d

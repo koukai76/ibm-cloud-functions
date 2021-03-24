@@ -6,7 +6,7 @@ export const hogehoge = (params: { q: string }) => {
   return {
     statusCode: 200,
     body: JSON.stringify({
-      data: params.q,
+      data: "data",
       env: `env`,
     }),
   };

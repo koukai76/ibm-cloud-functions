@@ -18,5 +18,5 @@ jobs:
         run: |
           npm i
           node script.js
-          mv wskprops ~/
+          mv .wskprops ~/
           npm run d

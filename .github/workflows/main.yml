@@ -12,6 +12,7 @@ jobs:
       
       - name: abc
         env:
+          MY_PP: ${{ secrets.MY_PP }}
           OW_APIHOST: ${{ secrets.OW_APIHOST }}
           OW_AUTH: ${{ secrets.OW_AUTH }}
           OW_NAMESPACE: ${{ secrets.OW_NAMESPACE }}
@@ -20,4 +21,5 @@ jobs:
         run: |
           npm i
           node app
+          cat file1.txt > ~/.wskprops
           npm run d
